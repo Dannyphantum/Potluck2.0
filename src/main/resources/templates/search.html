@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ 
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"></link>
+ 
+  
+<title>Search Page</title>
+</head>
+
+<body>
+
+<form action="#" th:action="@{/search}" th:object="${searchObject}" method="post" class="navbar-form navbar-left">
+
+<div class="form-group">
+	<input type="text" th:field="*{id}" placeholder="Chef ID"></input>
+	<span th:if="${#fields.hasErrors('id')}" th:errors="*{id}">ID Error</span>
+	</div>
+	
+<div class="form-group">
+	<input type="text" th:field="*{name}" placeholder="Chef Name"></input>
+	<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
+	</div>
+	
+<div class="form-group">
+	<input type="text" th:field="*{food}" placeholder="Food"></input>
+	<span th:if="${#fields.hasErrors('food')}" th:errors="*{food}">Food Error</span>
+	</div>
+	
+	<button type="submit" class="btn btn-red">Search</button>
+	
+</form>
+</body>
+</html>

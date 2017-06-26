@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,7 +29,7 @@ private UserRepository repository;
 	public String chefsAdded(@Valid Chefs chefs, BindingResult resultThatBinds, Model dubiousModel){
 		
 		if (resultThatBinds.hasErrors()){
-			return "signup";
+			return "signupForm";
 		}
 		
 		repository.save(chefs);
@@ -36,6 +37,18 @@ private UserRepository repository;
 		return "chefslist";
 	}
 
+	@GetMapping("/search")
+	public String chefSearch(Model searchModel){
+		searchModel.addAttribute("searchObject", new Chefs());
+		return "search";
+	}
+	/*
+	@PostMapping("/search")
+	public String SearchedFor(@ModelAttribute ("chefs")Chefs){
+		// should return search results
+		repository.findAll();
+		return "result";
+	}*/
 	@GetMapping("/all")
 	public @ResponseBody Iterable<Chefs> fetchAllChefs(){
 		// should return JSON or XML with chefs

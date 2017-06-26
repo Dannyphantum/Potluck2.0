@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-      <title>These are the Chefs</title>
+      <title>These are the Results</title>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   </head>
   <body>
       <h1>Chefs</h1>
-     <!--   <p th:text="'id: ' + ${User.id}" /> -->
-      <p th:text="'name: ' + ${chefObject.name}" />
-      <p th:text="'food: ' + ${chefObject.food}" />
-      <a href="/signup">Submit another message</a>
+      <p th:text="'id: ' + ${searchObject.id}" /> 
+      <p th:text="'name: ' + ${searchObject.name}" />
+      <p th:text="'food: ' + ${searchObject.food}" />
+      <a href="/signupForm">Submit another chef</a>
       <br></br>
       <a href="/search">Search for a chef</a>
   </body>
